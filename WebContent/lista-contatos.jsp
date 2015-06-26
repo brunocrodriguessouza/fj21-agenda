@@ -27,13 +27,14 @@
 				<td>${contato.nome}</td>
 
 				<td>
-					<c:if test="${not empty contato.email}">
-						<a href="mailto:${contato.email }">${contato.email }</a>
-					</c:if> 
-					
-					<c:if test="${empty contato.email }">
-						E-mail nao informado
-					</c:if>
+					<c:choose>
+						<c:when test="${not empty contato.email}">
+							<a href="mailto:${contato.email }">${contato.email }</a>
+						</c:when>
+						<c:otherwise>
+							E-mail nao informado
+						</c:otherwise>
+					</c:choose>
 				</td>
 
 				<td>${contato.endereco}</td>
